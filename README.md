@@ -12,7 +12,6 @@ repo-template/
 │   ├── backend.yml
 │   ├── branch-name.yml
 │   ├── frontend.yml
-│   └── update-readme.yml
 └── pull_request_template.md
 ```
 
@@ -76,24 +75,6 @@ Etapas:
 4. Executa `npm run build`
 
 Requer o secret `PUBLIC_API_BASE` configurado no repositorio para o build funcionar.
-
----
-
-### `update-readme.yml` — Atualizacao automatica de documentacao
-
-Roda em pull requests que adicionem ou modifiquem arquivos dentro de `docs/`.
-
-Usa o [claude-code-action](https://github.com/anthropics/claude-code-action) (modelo `claude-haiku-4-5`) para:
-
-1. Detectar arquivos novos adicionados em `docs/` na PR
-2. Se o arquivo for em `docs/workflows/`, atualizar automaticamente:
-   - A tabela em `docs/README.md` com nome, link e descricao curta do novo arquivo
-   - A lista "Documentacao Geral" no `README.md` raiz com um link para o novo arquivo
-3. Commitar as alteracoes como bot (`Equipe 404 Docs Bot`) diretamente na branch da PR
-
-Se o arquivo novo estiver em uma subpasta de `docs/` que ainda nao tem estrutura de tabela em `docs/README.md`, o bot comenta na PR avisando o time em vez de editar os arquivos.
-
-Requer os secrets `ANTHROPIC_API_KEY` e `GITHUB_TOKEN` configurados no repositorio.
 
 ---
 
