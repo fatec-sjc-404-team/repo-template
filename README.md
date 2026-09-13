@@ -8,11 +8,21 @@ Template de repositório da organização FATEC SJC — APIs. Contém os arquivo
 
 ```
 repo-template/
-├── workflows/
-│   ├── backend.yml
-│   ├── branch-name.yml
-│   ├── frontend.yml
-└── pull_request_template.md
+├── .github/
+│   ├── workflows/
+│   │   ├── backend.yml
+│   │   ├── branch-name.yml
+│   │   └── frontend.yml
+│   └── pull_request_template.md
+├── docs/
+│   ├── produto/
+│   │   └── backlog.md
+│   └── workflows/
+│       ├── acordos.md
+│       ├── fluxo-git.md
+│       ├── jira.md
+│       └── processo-pr.md
+└── readme-exemplo.md
 ```
 
 ---
@@ -21,8 +31,12 @@ repo-template/
 
 Copie os arquivos deste repositório para o novo repo do projeto, mantendo a estrutura de pastas:
 
-- `workflows/` deve ser colocado em `.github/workflows/`
-- `pull_request_template.md` deve ser colocado em `.github/`
+- `.github/workflows/` — workflows de CI/CD do GitHub Actions
+- `.github/pull_request_template.md` — template carregado automaticamente ao abrir um PR
+- `docs/` — documentação do time: backlog, fluxo Git, acordos, Jira e processo de PR
+- `readme-exemplo.md` — modelo de README principal do projeto (renomeie para `README.md` e preencha)
+
+Após copiar, preencha os campos marcados com `[Preencher]` em cada arquivo.
 
 ---
 
@@ -40,7 +54,7 @@ Valida que o nome da branch segue o padrao obrigatorio:
 
 **Tipos validos:** `feat`, `fix`, `hotfix`, `refactor`, `chore`, `docs`, `test`, `style`, `perf`, `ci`, `build`
 
-**Exemplo:** `feat/FC404-42_criar-tela-de-login`
+**Exemplo:** `feat/PROJ-42_criar-tela-de-login`
 
 Se o nome nao estiver no padrao, o job falha e bloqueia o merge.
 
@@ -67,8 +81,6 @@ Roda em push para `main`, `stg` ou `develop` e em pull requests que alterem arqu
 
 Etapas:
 
-Etapas:
-
 1. Configura Node.js 22 com cache de `npm`
 2. Instala dependencias com `npm ci`
 3. Executa `npm run lint` (ESLint + Prettier)
@@ -88,3 +100,15 @@ O arquivo `pull_request_template.md` e carregado automaticamente pelo GitHub ao 
 - **Como testar:** passo a passo para o revisor
 - **Checklist:** criterios minimos antes do merge (testes locais, sem debug logs, criterios de aceite do ticket, padrao de branch e commits)
 - **Dependencias:** PRs das quais essa depende
+
+---
+
+## Documentacao (docs/)
+
+| Arquivo                          | Conteudo                                                          |
+| :------------------------------- | :---------------------------------------------------------------- |
+| `docs/produto/backlog.md`        | Product Backlog com User Stories e estimativas por Sprint         |
+| `docs/workflows/acordos.md`      | Acordos do time: comunicacao, ceremonias e calendario de Sprints  |
+| `docs/workflows/fluxo-git.md`    | Convencoes de branch, commit e hooks locais (Lefthook)            |
+| `docs/workflows/jira.md`         | Fluxo de trabalho no Jira: colunas, movimentacao e campos         |
+| `docs/workflows/processo-pr.md`  | Processo de PR, Code Review, regras de protecao e Definition of Done |
